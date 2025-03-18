@@ -1,0 +1,35 @@
+# docker/docker-compose.yml
+version: '3.8'
+
+services:
+  client:
+    build:
+      context: ..
+      dockerfile: docker/client.Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+    environment:
+      - REACT_APP_API_URL=http://server:3000
+
+  server:
+    build:
+      context: ..
+      dockerfile: docker/server.Dockerfile
+    ports:
+      - "3001:3000"
+    depends_on:
+      - rag-service
+    environment:
+      - AZURE_COMPUTER_VISION_KEY=${AZURE_COMPUTER_VISION_KEY}
+      - AZURE_COMPUTER_VISION_ENDPOINT=${AZURE_COMPUTER_VISION_ENDPOINT}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - AZURE_TEXT_ANALYTICS_KEY=${AZURE_TEXT_ANALYTICS_KEY}
+      - AZURE_TEXT_ANALYTICS_ENDPOINT=${AZURE_TEXT_ANALYTICS_ENDPOINT}
+
+  rag-service:
+    build:
+      context: ../rag-service
+    ports:
+      - "5000:5000"

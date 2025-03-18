@@ -1,0 +1,19 @@
+{
+    "name": "project-nvk-client",
+    "version": "1.0.0",
+    "description": "Client application for Project-nvk document analyzer",
+    "main": "src/index.js",
+    "scripts": {
+      "start": "parcel public/index.html",
+      "build": "parcel build public/index.html",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "axios": "^1.6.0"
+    },
+    "devDependencies": {
+      "parcel-bundler": "^1.12.5"
+    }
+  }

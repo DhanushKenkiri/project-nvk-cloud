@@ -1,0 +1,23 @@
+
+{
+    "server": {
+        "port": 80,
+        "host": "0.0.0.0"
+    },
+    "azure": {
+        "computerVision": {
+            "key": "production_azure_computer_vision_key",
+            "endpoint": "production_azure_computer_vision_endpoint"
+        },
+        "textAnalytics": {
+            "key": "production_azure_text_analytics_key",
+            "endpoint": "production_azure_text_analytics_endpoint"
+        }
+    },
+    "gemini": {
+        "apiKey": "production_gemini_api_key"
+    },
+    "rag": {
+        "serviceUrl": "http://rag-service:5000"
+    }
+}

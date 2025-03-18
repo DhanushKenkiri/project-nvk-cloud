@@ -1,0 +1,7 @@
+# rag-service/requirements.txt
+fastapi
+uvicorn
+sentence-transformers
+faiss-cpu
+transformers
+pathway

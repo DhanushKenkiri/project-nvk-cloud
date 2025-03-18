@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-nvk Analyzer with Docker Setup</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>Project-nvk Analyzer using Docker Setup</h1>
+    </div>
+    
+    <div class="container">
+        <div class="content-area">
+            <div id="contract-analysis" class="tab-content active">
+                <h2>Contract Analysis</h2>
+                <p>Upload contracts for AI-powered analysis, explanation, and risk assessment</p>
+                
+                <div class="result-tabs">
+                    <div class="result-tab active" onclick="showResultTab('general-analysis')">General Analysis</div>
+                    <div class="result-tab" onclick="showResultTab('contract-summary')">Contract Summary</div>
+                    <div class="result-tab" onclick="showResultTab('risk-assessment')">Risk Assessment</div>
+                </div>
+                
+                <p>Upload a contract to receive a comprehensive analysis including purpose, key terms, obligations, and potential issues.</p>
+                
+                <div class="upload-area" id="dropZone">
+                    <div class="upload-icon">📤</div>
+                    <h3>Upload your contract</h3>
+                    <p>Drag and drop your PDF, Word, or scanned document, or click to browse</p>
+                    <input type="file" id="fileInput" style="display: none;" accept=".pdf,.docx,.jpg,.jpeg,.png">
+                    <button class="select-file-btn" onclick="document.getElementById('fileInput').click()">Select File</button>
+                </div>
+                
+                <div class="file-types">
+                    Supported formats: PDF, DOCX, JPG, PNG (Max size: 10MB)
+                </div>
+                
+                <div class="rag-toggle">
+                    <span>Use RAG for enhanced analysis:</span>
+                    <label class="switch">
+                        <input type="checkbox" id="ragToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="loading" id="loadingIndicator">
+                    <div class="spinner"></div>
+                    <p>Analyzing document...</p>
+                </div>
+                
+                <div class="results" id="resultsContainer">
+                    <div id="general-analysis" class="result-content active">
+                        <h3>General Analysis</h3>
+                        <div id="generalAnalysisResult"></div>
+                    </div>
+                    <div id="contract-summary" class="result-content">
+                        <h3>Contract Summary</h3>
+                        <div id="contractSummaryResult"></div>
+                    </div>
+                    <div id="risk-assessment" class="result-content">
+                        <h3>Risk Assessment</h3>
+                        <div id="riskAssessmentResult"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../src/js/app.js" type="module"></script>
+</body>
+</html>
